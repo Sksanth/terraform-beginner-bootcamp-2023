@@ -22,3 +22,6 @@ The general format:
 - **Maintain Main Branch:** Switch back to the main branch, pull the latest changes, tag the work (e.g., 'git tag 0.1.0'), and push the tags (git push --tags).
 - **Review Tag Changes:** Refresh the Git log/graph to view the updated tags and changes.
 
+
+![gitlog graph](https://github.com/Sksanth/terraform-beginner-bootcamp-2023/assets/102387885/d22555e0-b3c4-4073-a694-032704f43880)
+
