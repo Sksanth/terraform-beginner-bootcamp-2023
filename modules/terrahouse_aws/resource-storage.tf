@@ -30,30 +30,25 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
 resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html" 
-  //source = var.index_html_filepath
-  source = "${path.root}/public/index.html"
+  source = var.index_html_filepath 
   content_type = "text/html"
   
-  //etag = filemd5(var.index_html_filepath)
-  etag = filemd5("${path.root}/public/index.html")
+  etag = filemd5(var.index_html_filepath) 
   lifecycle {
     replace_triggered_by = [terraform_data.content_version.output]
     ignore_changes = [etag]
   }
 }
 
-# resource "aws_s3_object" "upload_assets" {
-#   for_each = fileset("${path.root}/public/assets","*.{jpg,png,gif}")
-#   bucket = aws_s3_bucket.website_bucket.bucket
-#   key    = "assets/${each.key}"
-#   source = "${path.root}/public/assets/${each.key}"
-#   etag = filemd5("${path.root}/public/assets/${each.key}")
-#   lifecycle {
-#     replace_triggered_by = [terraform_data.content_version.output]
-#     ignore_changes = [etag]
-#   }
-# }
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
+resource "aws_s3_object" "error_html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "error.html"
+  source = var.error_html_filepath  
+  content_type = "text/html"
 
+  etag = filemd5(var.error_html_filepath)
+}
 
 resource "aws_s3_object" "upload_assets" {
   for_each = fileset(var.assets_path,"*.{jpg,png,gif}")
@@ -66,18 +61,6 @@ resource "aws_s3_object" "upload_assets" {
     ignore_changes = [etag]
   }
 }
-
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_object
-resource "aws_s3_object" "error_html" {
-  bucket = aws_s3_bucket.website_bucket.bucket
-  key    = "error.html"
-  //source = var.error_html_filepath
-  source = "${path.root}/public/error.html"
-  content_type = "text/html"
-
-  etag = filemd5("${path.root}/public/error.html")
-}
-
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
   bucket = aws_s3_bucket.website_bucket.bucket
