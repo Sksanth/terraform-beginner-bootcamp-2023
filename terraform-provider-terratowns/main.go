@@ -40,7 +40,6 @@ func Provider() *schema.Provider {
 			"terratowns_home": Resource(),
 		},
 		DataSourcesMap:  map[string]*schema.Resource{
-
 		},
 		Schema: map[string]*schema.Schema{
 			"endpoint": {
@@ -58,6 +57,7 @@ func Provider() *schema.Provider {
 				Type: schema.TypeString,
 				Required: true,
 				Description: "UUID for configuration",
+
 				ValidateFunc: validateUUID,
 			},
 		},
@@ -131,9 +131,7 @@ func Resource() *schema.Resource {
 func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseCreate:start")
 	var diags diag.Diagnostics
-	
 	config := m.(*Config)
-
 	payload := map[string]interface{}{
 		"name": d.Get("name").(string),
 		"description": d.Get("description").(string),
@@ -178,21 +176,16 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 	}
 
 	// handle response status
-
 	homeUUID := responseData["uuid"].(string)
 	d.SetId(homeUUID)
-
 	log.Print("resourceHouseCreate:end")
-
 	return diags
 }
 
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
-	
 	config := m.(*Config)
-
 	homeUUID := d.Id()
 
 	// Construct the HTTP Request
@@ -240,9 +233,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseUpdate:start")
 	var diags diag.Diagnostics
-	
 	config := m.(*Config)
-
 	homeUUID := d.Id()
 
 	payload := map[string]interface{}{
@@ -291,9 +282,7 @@ func resourceHouseUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 func resourceHouseDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
 	log.Print("resourceHouseDelete:start")
 	var diags diag.Diagnostics
-	
 	config := m.(*Config)
-
 	homeUUID := d.Id()
 
 	// Construct the HTTP Request
