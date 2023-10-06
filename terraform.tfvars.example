@@ -1,3 +1,4 @@
+terratowns_endpoint="https://terratowns.cloud/api"
 index_html_filepath="/public/index.html"
 error_html_filepath="/public/error.html"
 assets_path="/public/assets/"
