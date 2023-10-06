@@ -1,11 +1,11 @@
 terraform {
-  # cloud {
-  #   organization = "Sksanth"
+  cloud {
+    organization = "Sksanth"
 
-  #   workspaces {
-  #     name = "terra-house-1"
-  #   }
-  # }
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 
   required_providers {
     terratowns = {
@@ -21,14 +21,11 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
-  bucket_name = var.bucket_name
+module "home_fall_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  index_html_filepath = "${path.root}${var.index_html_filepath}"
-  error_html_filepath = "${path.root}${var.error_html_filepath}"
-  content_version = var.content_version
-  assets_path = "${path.root}${var.assets_path}" 
+  public_path = var.fall.public_path
+  content_version = var.fall.content_version
 }
 
 resource "terratowns_home" "home" {
@@ -39,8 +36,25 @@ In the autumn season, the daylight grows shorter, and animals prepare for the lo
 The temperature starts becoming cooler during autumn. 
 Leaves on the trees will turn yellow, orange, red and brown during autumn.
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.home_fall_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.fall.content_version
 }
 
+module "home_bike_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.bike.public_path
+  content_version = var.bike.content_version
+}
+
+resource "terratowns_home" "home_bike" {
+  name = "Bikers"
+  description = <<DESCRIPTION
+Bicycling, also referred to as biking or cycling, is a form of transportation and a popular leisure-time physical activity. 
+Health benefits include improved cardiovascular fitness, stronger muscles, greater coordination and general mobility, and reduced body fat.
+DESCRIPTION
+  domain_name = module.home_bike_hosting.domain_name
+  town = "missingo"
+  content_version = var.bike.content_version
+}

@@ -1,5 +1,9 @@
 terratowns_endpoint="https://terratowns.cloud/api"
-index_html_filepath="/public/index.html"
-error_html_filepath="/public/error.html"
-assets_path="/public/assets/"
-content_version=2
+fall = {
+  public_path = "/public/fall"
+  content_version = 1 
+}
+bike = {
+  public_path = "/public/bike"
+  content_version = 1 
+}
