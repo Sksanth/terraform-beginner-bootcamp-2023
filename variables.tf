@@ -17,6 +17,13 @@ variable "fall" {
   })
 }
 
+variable "kpop" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
+}
+
 variable "bike" {
   type = object({
     public_path = string

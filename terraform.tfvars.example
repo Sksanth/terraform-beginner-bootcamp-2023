@@ -1,4 +1,8 @@
 terratowns_endpoint="https://terratowns.cloud/api"
+kpop = {
+  public_path = "/public/kpop"
+  content_version = 1 
+}
 fall = {
   public_path = "/public/fall"
   content_version = 1 
