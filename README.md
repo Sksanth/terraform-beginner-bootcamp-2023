@@ -1,5 +1,9 @@
 # Terraform Beginner Bootcamp 2023
 
+
+![architecture](https://github.com/Sksanth/aws-bc/assets/102387885/91d0864c-a563-467c-abb2-c0fd35810558)
+
+
 ## Semantic Versioning
 
 This project will use semantic versioning for tagging purposes by following the guidelines at [semver.org](https://semver.org/)
@@ -25,3 +29,8 @@ The general format:
 
 ![gitlog graph](https://github.com/Sksanth/terraform-beginner-bootcamp-2023/assets/102387885/d22555e0-b3c4-4073-a694-032704f43880)
 
+
+## Weekly Journals
+- [Week 0 Journal](journal/week0.md)
+- [Week 1 Journal](journal/week1.md)
+- [Week 2 Journal](journal/week2.md)

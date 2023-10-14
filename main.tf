@@ -21,6 +21,7 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
+/*
 module "home_fall_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
@@ -40,6 +41,7 @@ DESCRIPTION
   town = "missingo"
   content_version = var.fall.content_version
 }
+*/
 
 module "home_kpop_hosting" {
   source = "./modules/terrahome_aws"
