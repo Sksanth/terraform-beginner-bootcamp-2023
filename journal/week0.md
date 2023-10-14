@@ -1,5 +1,23 @@
 # Week 0 — Project Preparation
 
+## Table of Contents
+ - []()
+ - [Terraform CLI Installation](Terraform-CLI-Installation)
+     - [Linux Distribution Compatibility](Linux-Distribution-Compatibility)
+     - [Refactoring into Bash Scripts](Refactoring-into-Bash-Scripts)
+ - [GitHub Workspace Considerations](GitHub-Workspace-Considerations)
+ - [Working with Environment Variables](Working-with-Environment-Variables)
+     - [Setting and Unsetting Env Vars](Setting-and-Unsetting-Env-Vars)\
+     - [Printing Env Vars](Printing-Env-Vars)
+     - [Scope of Env Vars](Scope-of-Env-Vars)
+     - [Persisting Env Vars in Gitpod](Persisting-Env-Vars-in-Gitpod)
+ - [AWS CLI Installation](AWS-CLI-Installation)
+ - [Terraform Basics](Terraform-Basics)
+ - [Issues with Terraform Cloud Login and Gitpod Workspace](Issues-with-Terraform-Cloud-Login-and-Gitpod-Workspace)
+ - [Setting an Alias for Terraform](Setting-an-Alias-for-Terraform)
+
+
+
 ## Terraform CLI Installation
 
 Updated the Terraform CLI installation process due to changes in gpg keyring handling. So we needed to refer to the latest installation instructions in the Terraform Documentation and adjust the installation scripts accordingly.

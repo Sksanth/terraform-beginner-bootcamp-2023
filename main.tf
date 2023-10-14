@@ -21,6 +21,7 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
+/*
 module "home_fall_hosting" {
   source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
@@ -39,6 +40,24 @@ DESCRIPTION
   domain_name = module.home_fall_hosting.domain_name
   town = "missingo"
   content_version = var.fall.content_version
+}
+*/
+
+module "home_kpop_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.kpop.public_path
+  content_version = var.kpop.content_version
+}
+
+resource "terratowns_home" "home_kpop" {
+  name = "K-Pop"
+  description = <<DESCRIPTION
+Korean popular music, is a form of popular music originating in South Korea as part of South Korean culture.
+DESCRIPTION
+  domain_name = module.home_kpop_hosting.domain_name
+  town = "melomaniac-mansion"
+  content_version = var.kpop.content_version
 }
 
 module "home_kpop_hosting" {
