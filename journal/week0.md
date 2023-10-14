@@ -1,7 +1,6 @@
 # Week 0 — Project Preparation
 
 ## Table of Contents
- - []()
  - [Terraform CLI Installation](Terraform-CLI-Installation)
      - [Linux Distribution Compatibility](Linux-Distribution-Compatibility)
      - [Refactoring into Bash Scripts](Refactoring-into-Bash-Scripts)
